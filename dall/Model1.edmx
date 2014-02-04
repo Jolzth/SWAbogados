@@ -1,0 +1,1028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="expedientes_jbjModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="expedientes_jbjModelStoreContainer">
+          <EntitySet Name="adj_consultas" EntityType="expedientes_jbjModel.Store.adj_consultas" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="asignacion" EntityType="expedientes_jbjModel.Store.asignacion" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="consultas" EntityType="expedientes_jbjModel.Store.consultas" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="contraparte" EntityType="expedientes_jbjModel.Store.contraparte" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="demanda" EntityType="expedientes_jbjModel.Store.demanda" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="detalle_consulta" EntityType="expedientes_jbjModel.Store.detalle_consulta" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="expedientes" EntityType="expedientes_jbjModel.Store.expedientes" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="gestion" EntityType="expedientes_jbjModel.Store.gestion" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="honorarios" EntityType="expedientes_jbjModel.Store.honorarios" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="juicio" EntityType="expedientes_jbjModel.Store.juicio" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="notariado" EntityType="expedientes_jbjModel.Store.notariado" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="sujetos" EntityType="expedientes_jbjModel.Store.sujetos" store:Type="Tables" Schema="exp_jbj" />
+          <EntitySet Name="usuarios" EntityType="expedientes_jbjModel.Store.usuarios" store:Type="Tables" Schema="exp_jbj" />
+          <AssociationSet Name="adj_consultas_ibfk_1" Association="expedientes_jbjModel.Store.adj_consultas_ibfk_1">
+            <End Role="consultas" EntitySet="consultas" />
+            <End Role="adj_consultas" EntitySet="adj_consultas" />
+          </AssociationSet>
+          <AssociationSet Name="asignacion_ibfk_1" Association="expedientes_jbjModel.Store.asignacion_ibfk_1">
+            <End Role="gestion" EntitySet="gestion" />
+            <End Role="asignacion" EntitySet="asignacion" />
+          </AssociationSet>
+          <AssociationSet Name="asignacion_ibfk_2" Association="expedientes_jbjModel.Store.asignacion_ibfk_2">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="asignacion" EntitySet="asignacion" />
+          </AssociationSet>
+          <AssociationSet Name="demanda_ibfk_1" Association="expedientes_jbjModel.Store.demanda_ibfk_1">
+            <End Role="gestion" EntitySet="gestion" />
+            <End Role="demanda" EntitySet="demanda" />
+          </AssociationSet>
+          <AssociationSet Name="demanda_ibfk_2" Association="expedientes_jbjModel.Store.demanda_ibfk_2">
+            <End Role="contraparte" EntitySet="contraparte" />
+            <End Role="demanda" EntitySet="demanda" />
+          </AssociationSet>
+          <AssociationSet Name="detalle_consulta_ibfk_1" Association="expedientes_jbjModel.Store.detalle_consulta_ibfk_1">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="detalle_consulta" EntitySet="detalle_consulta" />
+          </AssociationSet>
+          <AssociationSet Name="detalle_consulta_ibfk_2" Association="expedientes_jbjModel.Store.detalle_consulta_ibfk_2">
+            <End Role="consultas" EntitySet="consultas" />
+            <End Role="detalle_consulta" EntitySet="detalle_consulta" />
+          </AssociationSet>
+          <AssociationSet Name="expedientes_ibfk_1" Association="expedientes_jbjModel.Store.expedientes_ibfk_1">
+            <End Role="gestion" EntitySet="gestion" />
+            <End Role="expedientes" EntitySet="expedientes" />
+          </AssociationSet>
+          <AssociationSet Name="gestion_ibfk_1" Association="expedientes_jbjModel.Store.gestion_ibfk_1">
+            <End Role="honorarios" EntitySet="honorarios" />
+            <End Role="gestion" EntitySet="gestion" />
+          </AssociationSet>
+          <AssociationSet Name="juicio_ibfk_1" Association="expedientes_jbjModel.Store.juicio_ibfk_1">
+            <End Role="demanda" EntitySet="demanda" />
+            <End Role="juicio" EntitySet="juicio" />
+          </AssociationSet>
+          <AssociationSet Name="notariado_ibfk_1" Association="expedientes_jbjModel.Store.notariado_ibfk_1">
+            <End Role="gestion" EntitySet="gestion" />
+            <End Role="notariado" EntitySet="notariado" />
+          </AssociationSet>
+          <AssociationSet Name="sujetos_ibfk_1" Association="expedientes_jbjModel.Store.sujetos_ibfk_1">
+            <End Role="notariado" EntitySet="notariado" />
+            <End Role="sujetos" EntitySet="sujetos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="adj_consultas">
+          <Key>
+            <PropertyRef Name="id_adjunto" />
+          </Key>
+          <Property Name="id_adjunto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_consulta" Type="int" />
+          <Property Name="Fichero" Type="longblob" />
+        </EntityType>
+        <EntityType Name="asignacion">
+          <Key>
+            <PropertyRef Name="id_asignacion" />
+          </Key>
+          <Property Name="id_asignacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_gestion" Type="int" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="consultas">
+          <Key>
+            <PropertyRef Name="id_consulta" />
+          </Key>
+          <Property Name="id_consulta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" MaxLength="150" />
+          <Property Name="asunto" Type="varchar" MaxLength="50" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="texto" Type="varchar" MaxLength="400" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="contraparte">
+          <Key>
+            <PropertyRef Name="id_contraparte" />
+          </Key>
+          <Property Name="id_contraparte" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="no_ced" Type="varchar" MaxLength="16" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Edo_civil" Type="enum" />
+          <Property Name="Edad" Type="uint" />
+          <Property Name="Oficio" Type="varchar" MaxLength="100" />
+          <Property Name="Domicilio" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="demanda">
+          <Key>
+            <PropertyRef Name="id_demanda" />
+          </Key>
+          <Property Name="id_demanda" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_gestion" Type="int" />
+          <Property Name="id_contraparte" Type="int" />
+          <Property Name="tipo_demanda" Type="bit" />
+          <Property Name="Fecha_fin" Type="date" />
+          <Property Name="Relacion_hechos" Type="varchar" MaxLength="500" />
+          <Property Name="Peticion" Type="varchar" MaxLength="100" />
+          <Property Name="Firma" Type="enum" />
+          <Property Name="no_exppolicial" Type="varchar" MaxLength="20" />
+          <Property Name="no_expfiscal" Type="varchar" MaxLength="20" />
+          <Property Name="no_expjudicial" Type="varchar" MaxLength="20" />
+          <Property Name="juzgado" Type="varchar" MaxLength="50" />
+          <Property Name="Fiscal" Type="varchar" MaxLength="150" />
+          <Property Name="no_acusacion" Type="varchar" MaxLength="20" />
+          <Property Name="Acusador" Type="enum" />
+          <Property Name="Mediacion" Type="bit" />
+          <Property Name="Sentencia" Type="enum" />
+        </EntityType>
+        <EntityType Name="detalle_consulta">
+          <Key>
+            <PropertyRef Name="id_detconsulta" />
+          </Key>
+          <Property Name="id_detconsulta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_consulta" Type="int" />
+        </EntityType>
+        <EntityType Name="expedientes">
+          <Key>
+            <PropertyRef Name="id_doc" />
+          </Key>
+          <Property Name="id_doc" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_gestion" Type="int" />
+          <Property Name="Titulo" Type="varchar" MaxLength="50" />
+          <Property Name="Fichero" Type="longblob" />
+        </EntityType>
+        <EntityType Name="gestion">
+          <Key>
+            <PropertyRef Name="id_gestion" />
+          </Key>
+          <Property Name="id_gestion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_honorario" Type="int" />
+          <Property Name="FECHA" Type="date" />
+          <Property Name="ACTIVO" Type="bit" />
+        </EntityType>
+        <EntityType Name="honorarios">
+          <Key>
+            <PropertyRef Name="id_honorario" />
+          </Key>
+          <Property Name="id_honorario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Calificacion_legal" Type="varchar" MaxLength="150" />
+          <Property Name="Honorario" Type="float" />
+          <Property Name="Tipo_callegal" Type="enum" />
+        </EntityType>
+        <EntityType Name="juicio">
+          <Key>
+            <PropertyRef Name="id_juicio" />
+          </Key>
+          <Property Name="id_juicio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_demanda" Type="int" />
+          <Property Name="Fecha_juicio" Type="datetime" />
+          <Property Name="Lugar_juicio" Type="varchar" MaxLength="150" />
+          <Property Name="Term_dilig_prep" Type="int" />
+          <Property Name="Juez" Type="varchar" MaxLength="150" />
+          <Property Name="Tipo_juicio" Type="enum" />
+          <Property Name="Apelacion" Type="bit" />
+        </EntityType>
+        <EntityType Name="notariado">
+          <Key>
+            <PropertyRef Name="id_notariado" />
+          </Key>
+          <Property Name="id_notariado" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_gestion" Type="int" />
+          <Property Name="no_escritura" Type="int" />
+          <Property Name="Tipo_notariado" Type="enum" />
+          <Property Name="Folio" Type="varchar" MaxLength="10" />
+          <Property Name="Objeto" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="sujetos">
+          <Key>
+            <PropertyRef Name="id_sujeto" />
+          </Key>
+          <Property Name="id_sujeto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_notariado" Type="int" />
+          <Property Name="Nombre_completo" Type="varchar" MaxLength="150" />
+          <Property Name="Tipo_sujeto" Type="enum" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="varchar" MaxLength="25" />
+          <Property Name="contra" Type="varchar" MaxLength="50" />
+          <Property Name="tipo" Type="enum" />
+          <Property Name="no_ced" Type="varchar" MaxLength="16" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="Domicilio" Type="varchar" MaxLength="150" />
+          <Property Name="Telefono" Type="varchar" MaxLength="25" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+          <Property Name="cod_autorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="Edo_civil" Type="enum" />
+          <Property Name="Edad" Type="uint" />
+          <Property Name="Oficio" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="adj_consultas_ibfk_1">
+          <End Role="consultas" Type="expedientes_jbjModel.Store.consultas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="adj_consultas" Type="expedientes_jbjModel.Store.adj_consultas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="consultas">
+              <PropertyRef Name="id_consulta" />
+            </Principal>
+            <Dependent Role="adj_consultas">
+              <PropertyRef Name="id_consulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asignacion_ibfk_1">
+          <End Role="gestion" Type="expedientes_jbjModel.Store.gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="asignacion" Type="expedientes_jbjModel.Store.asignacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="asignacion">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asignacion_ibfk_2">
+          <End Role="usuarios" Type="expedientes_jbjModel.Store.usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="asignacion" Type="expedientes_jbjModel.Store.asignacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="asignacion">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="demanda_ibfk_1">
+          <End Role="gestion" Type="expedientes_jbjModel.Store.gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="demanda" Type="expedientes_jbjModel.Store.demanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="demanda">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="demanda_ibfk_2">
+          <End Role="contraparte" Type="expedientes_jbjModel.Store.contraparte" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="demanda" Type="expedientes_jbjModel.Store.demanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contraparte">
+              <PropertyRef Name="id_contraparte" />
+            </Principal>
+            <Dependent Role="demanda">
+              <PropertyRef Name="id_contraparte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalle_consulta_ibfk_1">
+          <End Role="usuarios" Type="expedientes_jbjModel.Store.usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="detalle_consulta" Type="expedientes_jbjModel.Store.detalle_consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="detalle_consulta">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalle_consulta_ibfk_2">
+          <End Role="consultas" Type="expedientes_jbjModel.Store.consultas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="detalle_consulta" Type="expedientes_jbjModel.Store.detalle_consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="consultas">
+              <PropertyRef Name="id_consulta" />
+            </Principal>
+            <Dependent Role="detalle_consulta">
+              <PropertyRef Name="id_consulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="expedientes_ibfk_1">
+          <End Role="gestion" Type="expedientes_jbjModel.Store.gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="expedientes" Type="expedientes_jbjModel.Store.expedientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="expedientes">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gestion_ibfk_1">
+          <End Role="honorarios" Type="expedientes_jbjModel.Store.honorarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gestion" Type="expedientes_jbjModel.Store.gestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="honorarios">
+              <PropertyRef Name="id_honorario" />
+            </Principal>
+            <Dependent Role="gestion">
+              <PropertyRef Name="id_honorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="juicio_ibfk_1">
+          <End Role="demanda" Type="expedientes_jbjModel.Store.demanda" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="juicio" Type="expedientes_jbjModel.Store.juicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="demanda">
+              <PropertyRef Name="id_demanda" />
+            </Principal>
+            <Dependent Role="juicio">
+              <PropertyRef Name="id_demanda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="notariado_ibfk_1">
+          <End Role="gestion" Type="expedientes_jbjModel.Store.gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notariado" Type="expedientes_jbjModel.Store.notariado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="notariado">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sujetos_ibfk_1">
+          <End Role="notariado" Type="expedientes_jbjModel.Store.notariado" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sujetos" Type="expedientes_jbjModel.Store.sujetos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notariado">
+              <PropertyRef Name="id_notariado" />
+            </Principal>
+            <Dependent Role="sujetos">
+              <PropertyRef Name="id_notariado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="buscarxfechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="exp_jbj">
+          <Parameter Name="fi" Type="date" Mode="In" />
+          <Parameter Name="ff" Type="date" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="expedientes_jbjModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="expedientes_jbjEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adj_consultas" EntityType="expedientes_jbjModel.adj_consultas" />
+          <EntitySet Name="asignacions" EntityType="expedientes_jbjModel.asignacion" />
+          <EntitySet Name="consultas" EntityType="expedientes_jbjModel.consulta" />
+          <EntitySet Name="contrapartes" EntityType="expedientes_jbjModel.contraparte" />
+          <EntitySet Name="detalle_consulta" EntityType="expedientes_jbjModel.detalle_consulta" />
+          <EntitySet Name="expedientes" EntityType="expedientes_jbjModel.expediente" />
+          <EntitySet Name="gestions" EntityType="expedientes_jbjModel.gestion" />
+          <EntitySet Name="honorarios" EntityType="expedientes_jbjModel.honorario" />
+          <EntitySet Name="juicios" EntityType="expedientes_jbjModel.juicio" />
+          <EntitySet Name="sujetos" EntityType="expedientes_jbjModel.sujeto" />
+          <EntitySet Name="usuarios" EntityType="expedientes_jbjModel.usuario" />
+          <AssociationSet Name="adj_consultas_ibfk_1" Association="expedientes_jbjModel.adj_consultas_ibfk_1">
+            <End Role="consulta" EntitySet="consultas" />
+            <End Role="adj_consultas" EntitySet="adj_consultas" />
+          </AssociationSet>
+          <AssociationSet Name="asignacion_ibfk_1" Association="expedientes_jbjModel.asignacion_ibfk_1">
+            <End Role="gestion" EntitySet="gestions" />
+            <End Role="asignacion" EntitySet="asignacions" />
+          </AssociationSet>
+          <AssociationSet Name="asignacion_ibfk_2" Association="expedientes_jbjModel.asignacion_ibfk_2">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="asignacion" EntitySet="asignacions" />
+          </AssociationSet>
+          <AssociationSet Name="detalle_consulta_ibfk_2" Association="expedientes_jbjModel.detalle_consulta_ibfk_2">
+            <End Role="consulta" EntitySet="consultas" />
+            <End Role="detalle_consulta" EntitySet="detalle_consulta" />
+          </AssociationSet>
+          <AssociationSet Name="detalle_consulta_ibfk_1" Association="expedientes_jbjModel.detalle_consulta_ibfk_1">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="detalle_consulta" EntitySet="detalle_consulta" />
+          </AssociationSet>
+          <AssociationSet Name="expedientes_ibfk_1" Association="expedientes_jbjModel.expedientes_ibfk_1">
+            <End Role="gestion" EntitySet="gestions" />
+            <End Role="expediente" EntitySet="expedientes" />
+          </AssociationSet>
+          <AssociationSet Name="gestion_ibfk_1" Association="expedientes_jbjModel.gestion_ibfk_1">
+            <End Role="honorario" EntitySet="honorarios" />
+            <End Role="gestion" EntitySet="gestions" />
+          </AssociationSet>
+          <FunctionImport Name="buscarxfechas" ReturnType="Collection(expedientes_jbjModel.buscarxfechas_Result)">
+            <Parameter Name="fi" Mode="In" Type="DateTime" />
+            <Parameter Name="ff" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="demandas" EntityType="expedientes_jbjModel.demanda" />
+          <AssociationSet Name="demanda_ibfk_2" Association="expedientes_jbjModel.demanda_ibfk_2">
+            <End Role="contraparte" EntitySet="contrapartes" />
+            <End Role="demanda" EntitySet="demandas" />
+          </AssociationSet>
+          <AssociationSet Name="demanda_ibfk_1" Association="expedientes_jbjModel.demanda_ibfk_1">
+            <End Role="gestion" EntitySet="gestions" />
+            <End Role="demanda" EntitySet="demandas" />
+          </AssociationSet>
+          <AssociationSet Name="juicio_ibfk_1" Association="expedientes_jbjModel.juicio_ibfk_1">
+            <End Role="demanda" EntitySet="demandas" />
+            <End Role="juicio" EntitySet="juicios" />
+          </AssociationSet>
+          <EntitySet Name="notariadoes" EntityType="expedientes_jbjModel.notariado" />
+          <AssociationSet Name="notariado_ibfk_1" Association="expedientes_jbjModel.notariado_ibfk_1">
+            <End Role="gestion" EntitySet="gestions" />
+            <End Role="notariado" EntitySet="notariadoes" />
+          </AssociationSet>
+          <AssociationSet Name="sujetos_ibfk_1" Association="expedientes_jbjModel.sujetos_ibfk_1">
+            <End Role="notariado" EntitySet="notariadoes" />
+            <End Role="sujeto" EntitySet="sujetos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="adj_consultas">
+          <Key>
+            <PropertyRef Name="id_adjunto" />
+          </Key>
+          <Property Type="Int32" Name="id_adjunto" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_consulta" />
+          <Property Type="Binary" Name="Fichero" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="consulta" Relationship="expedientes_jbjModel.adj_consultas_ibfk_1" FromRole="adj_consultas" ToRole="consulta" />
+        </EntityType>
+        <EntityType Name="asignacion">
+          <Key>
+            <PropertyRef Name="id_asignacion" />
+          </Key>
+          <Property Type="Int32" Name="id_asignacion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_gestion" />
+          <Property Type="Int32" Name="id_usuario" />
+          <NavigationProperty Name="gestion" Relationship="expedientes_jbjModel.asignacion_ibfk_1" FromRole="asignacion" ToRole="gestion" />
+          <NavigationProperty Name="usuario" Relationship="expedientes_jbjModel.asignacion_ibfk_2" FromRole="asignacion" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="consulta">
+          <Key>
+            <PropertyRef Name="id_consulta" />
+          </Key>
+          <Property Type="Int32" Name="id_consulta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="nombre" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="asunto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha" Precision="0" />
+          <Property Type="String" Name="texto" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="correo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="adj_consultas" Relationship="expedientes_jbjModel.adj_consultas_ibfk_1" FromRole="consulta" ToRole="adj_consultas" />
+          <NavigationProperty Name="detalle_consulta" Relationship="expedientes_jbjModel.detalle_consulta_ibfk_2" FromRole="consulta" ToRole="detalle_consulta" />
+        </EntityType>
+        <EntityType Name="contraparte">
+          <Key>
+            <PropertyRef Name="id_contraparte" />
+          </Key>
+          <Property Type="Int32" Name="id_contraparte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="no_ced" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombres" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Apellidos" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Edo_civil" MaxLength="65532" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Edad" />
+          <Property Type="String" Name="Oficio" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Domicilio" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="demandas" Relationship="expedientes_jbjModel.demanda_ibfk_2" FromRole="contraparte" ToRole="demanda" />
+        </EntityType>
+        <EntityType Name="detalle_consulta">
+          <Key>
+            <PropertyRef Name="id_detconsulta" />
+          </Key>
+          <Property Type="Int32" Name="id_detconsulta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_usuario" />
+          <Property Type="Int32" Name="id_consulta" />
+          <NavigationProperty Name="consulta" Relationship="expedientes_jbjModel.detalle_consulta_ibfk_2" FromRole="detalle_consulta" ToRole="consulta" />
+          <NavigationProperty Name="usuario" Relationship="expedientes_jbjModel.detalle_consulta_ibfk_1" FromRole="detalle_consulta" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="expediente">
+          <Key>
+            <PropertyRef Name="id_doc" />
+          </Key>
+          <Property Type="Int32" Name="id_doc" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_gestion" />
+          <Property Type="String" Name="Titulo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="Fichero" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="gestion" Relationship="expedientes_jbjModel.expedientes_ibfk_1" FromRole="expediente" ToRole="gestion" />
+        </EntityType>
+        <EntityType Name="gestion">
+          <Key>
+            <PropertyRef Name="id_gestion" />
+          </Key>
+          <Property Type="Int32" Name="id_gestion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_honorario" />
+          <NavigationProperty Name="asignacions" Relationship="expedientes_jbjModel.asignacion_ibfk_1" FromRole="gestion" ToRole="asignacion" />
+          <NavigationProperty Name="expedientes" Relationship="expedientes_jbjModel.expedientes_ibfk_1" FromRole="gestion" ToRole="expediente" />
+          <NavigationProperty Name="honorario" Relationship="expedientes_jbjModel.gestion_ibfk_1" FromRole="gestion" ToRole="honorario" />
+          <Property Type="DateTime" Name="FECHA" />
+          <Property Type="Boolean" Name="ACTIVO" />
+          <NavigationProperty Name="demandas" Relationship="expedientes_jbjModel.demanda_ibfk_1" FromRole="gestion" ToRole="demanda" />
+          <NavigationProperty Name="notariadoes" Relationship="expedientes_jbjModel.notariado_ibfk_1" FromRole="gestion" ToRole="notariado" />
+        </EntityType>
+        <EntityType Name="honorario">
+          <Key>
+            <PropertyRef Name="id_honorario" />
+          </Key>
+          <Property Type="Int32" Name="id_honorario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Calificacion_legal" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Single" Name="Honorario1" />
+          <Property Type="String" Name="Tipo_callegal" MaxLength="65532" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="gestions" Relationship="expedientes_jbjModel.gestion_ibfk_1" FromRole="honorario" ToRole="gestion" />
+        </EntityType>
+        <EntityType Name="juicio">
+          <Key>
+            <PropertyRef Name="id_juicio" />
+          </Key>
+          <Property Type="Int32" Name="id_juicio" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_demanda" />
+          <Property Type="DateTime" Name="Fecha_juicio" Precision="0" />
+          <Property Type="String" Name="Lugar_juicio" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Term_dilig_prep" />
+          <Property Type="String" Name="Juez" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo_juicio" MaxLength="65532" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Apelacion" />
+          <NavigationProperty Name="demanda" Relationship="expedientes_jbjModel.juicio_ibfk_1" FromRole="juicio" ToRole="demanda" />
+        </EntityType>
+        <EntityType Name="sujeto">
+          <Key>
+            <PropertyRef Name="id_sujeto" />
+          </Key>
+          <Property Type="Int32" Name="id_sujeto" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_notariado" />
+          <Property Type="String" Name="Nombre_completo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo_sujeto" MaxLength="65532" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="notariado" Relationship="expedientes_jbjModel.sujetos_ibfk_1" FromRole="sujeto" ToRole="notariado" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Type="Int32" Name="id_usuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="usuario1" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="contra" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tipo" MaxLength="65532" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="no_ced" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombres" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Apellidos" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Domicilio" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Telefono" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Correo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cod_autorizacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Edo_civil" MaxLength="65532" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Edad" />
+          <Property Type="String" Name="Oficio" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="asignacions" Relationship="expedientes_jbjModel.asignacion_ibfk_2" FromRole="usuario" ToRole="asignacion" />
+          <NavigationProperty Name="detalle_consulta" Relationship="expedientes_jbjModel.detalle_consulta_ibfk_1" FromRole="usuario" ToRole="detalle_consulta" />
+        </EntityType>
+        <Association Name="adj_consultas_ibfk_1">
+          <End Type="expedientes_jbjModel.consulta" Role="consulta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.adj_consultas" Role="adj_consultas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="consulta">
+              <PropertyRef Name="id_consulta" />
+            </Principal>
+            <Dependent Role="adj_consultas">
+              <PropertyRef Name="id_consulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asignacion_ibfk_1">
+          <End Type="expedientes_jbjModel.gestion" Role="gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.asignacion" Role="asignacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="asignacion">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asignacion_ibfk_2">
+          <End Type="expedientes_jbjModel.usuario" Role="usuario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.asignacion" Role="asignacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="asignacion">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalle_consulta_ibfk_2">
+          <End Type="expedientes_jbjModel.consulta" Role="consulta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.detalle_consulta" Role="detalle_consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="consulta">
+              <PropertyRef Name="id_consulta" />
+            </Principal>
+            <Dependent Role="detalle_consulta">
+              <PropertyRef Name="id_consulta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="detalle_consulta_ibfk_1">
+          <End Type="expedientes_jbjModel.usuario" Role="usuario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.detalle_consulta" Role="detalle_consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="detalle_consulta">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="expedientes_ibfk_1">
+          <End Type="expedientes_jbjModel.gestion" Role="gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.expediente" Role="expediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="expediente">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gestion_ibfk_1">
+          <End Type="expedientes_jbjModel.honorario" Role="honorario" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.gestion" Role="gestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="honorario">
+              <PropertyRef Name="id_honorario" />
+            </Principal>
+            <Dependent Role="gestion">
+              <PropertyRef Name="id_honorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="buscarxfechas_Result" />
+        <EntityType Name="demanda">
+          <Key>
+            <PropertyRef Name="id_demanda" />
+          </Key>
+          <Property Type="Int32" Name="id_demanda" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_gestion" />
+          <Property Type="Int32" Name="id_contraparte" />
+          <Property Type="Boolean" Name="tipo_demanda" />
+          <Property Type="DateTime" Name="Fecha_fin" />
+          <Property Type="String" Name="Relacion_hechos" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Peticion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Firma" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="no_exppolicial" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="no_expfiscal" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="no_expjudicial" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="juzgado" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fiscal" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="no_acusacion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Acusador" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Mediacion" />
+          <Property Type="String" Name="Sentencia" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contraparte" Relationship="expedientes_jbjModel.demanda_ibfk_2" FromRole="demanda" ToRole="contraparte" />
+          <NavigationProperty Name="gestion" Relationship="expedientes_jbjModel.demanda_ibfk_1" FromRole="demanda" ToRole="gestion" />
+          <NavigationProperty Name="juicios" Relationship="expedientes_jbjModel.juicio_ibfk_1" FromRole="demanda" ToRole="juicio" />
+        </EntityType>
+        <Association Name="demanda_ibfk_2">
+          <End Type="expedientes_jbjModel.contraparte" Role="contraparte" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.demanda" Role="demanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contraparte">
+              <PropertyRef Name="id_contraparte" />
+            </Principal>
+            <Dependent Role="demanda">
+              <PropertyRef Name="id_contraparte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="demanda_ibfk_1">
+          <End Type="expedientes_jbjModel.gestion" Role="gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.demanda" Role="demanda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="demanda">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="juicio_ibfk_1">
+          <End Type="expedientes_jbjModel.demanda" Role="demanda" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.juicio" Role="juicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="demanda">
+              <PropertyRef Name="id_demanda" />
+            </Principal>
+            <Dependent Role="juicio">
+              <PropertyRef Name="id_demanda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="notariado">
+          <Key>
+            <PropertyRef Name="id_notariado" />
+          </Key>
+          <Property Type="Int32" Name="id_notariado" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_gestion" />
+          <Property Type="Int32" Name="no_escritura" />
+          <Property Type="String" Name="Tipo_notariado" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Folio" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Objeto" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="gestion" Relationship="expedientes_jbjModel.notariado_ibfk_1" FromRole="notariado" ToRole="gestion" />
+          <NavigationProperty Name="sujetos" Relationship="expedientes_jbjModel.sujetos_ibfk_1" FromRole="notariado" ToRole="sujeto" />
+        </EntityType>
+        <Association Name="notariado_ibfk_1">
+          <End Type="expedientes_jbjModel.gestion" Role="gestion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.notariado" Role="notariado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gestion">
+              <PropertyRef Name="id_gestion" />
+            </Principal>
+            <Dependent Role="notariado">
+              <PropertyRef Name="id_gestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sujetos_ibfk_1">
+          <End Type="expedientes_jbjModel.notariado" Role="notariado" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="expedientes_jbjModel.sujeto" Role="sujeto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notariado">
+              <PropertyRef Name="id_notariado" />
+            </Principal>
+            <Dependent Role="sujeto">
+              <PropertyRef Name="id_notariado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="expedientes_jbjModelStoreContainer" CdmEntityContainer="expedientes_jbjEntities">
+          <EntitySetMapping Name="adj_consultas">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.adj_consultas">
+              <MappingFragment StoreEntitySet="adj_consultas">
+                <ScalarProperty Name="Fichero" ColumnName="Fichero" />
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="id_adjunto" ColumnName="id_adjunto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asignacions">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.asignacion">
+              <MappingFragment StoreEntitySet="asignacion">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_gestion" ColumnName="id_gestion" />
+                <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consultas">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.consulta">
+              <MappingFragment StoreEntitySet="consultas">
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="texto" ColumnName="texto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contrapartes">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.contraparte">
+              <MappingFragment StoreEntitySet="contraparte">
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Oficio" ColumnName="Oficio" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Edo_civil" ColumnName="Edo_civil" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="no_ced" ColumnName="no_ced" />
+                <ScalarProperty Name="id_contraparte" ColumnName="id_contraparte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_consulta">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.detalle_consulta">
+              <MappingFragment StoreEntitySet="detalle_consulta">
+                <ScalarProperty Name="id_consulta" ColumnName="id_consulta" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_detconsulta" ColumnName="id_detconsulta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expedientes">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.expediente">
+              <MappingFragment StoreEntitySet="expedientes">
+                <ScalarProperty Name="Fichero" ColumnName="Fichero" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="id_gestion" ColumnName="id_gestion" />
+                <ScalarProperty Name="id_doc" ColumnName="id_doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gestions">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.gestion">
+              <MappingFragment StoreEntitySet="gestion">
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="id_honorario" ColumnName="id_honorario" />
+                <ScalarProperty Name="id_gestion" ColumnName="id_gestion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="honorarios">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.honorario">
+              <MappingFragment StoreEntitySet="honorarios">
+                <ScalarProperty Name="Tipo_callegal" ColumnName="Tipo_callegal" />
+                <ScalarProperty Name="Honorario1" ColumnName="Honorario" />
+                <ScalarProperty Name="Calificacion_legal" ColumnName="Calificacion_legal" />
+                <ScalarProperty Name="id_honorario" ColumnName="id_honorario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="juicios">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.juicio">
+              <MappingFragment StoreEntitySet="juicio">
+                <ScalarProperty Name="Apelacion" ColumnName="Apelacion" />
+                <ScalarProperty Name="Tipo_juicio" ColumnName="Tipo_juicio" />
+                <ScalarProperty Name="Juez" ColumnName="Juez" />
+                <ScalarProperty Name="Term_dilig_prep" ColumnName="Term_dilig_prep" />
+                <ScalarProperty Name="Lugar_juicio" ColumnName="Lugar_juicio" />
+                <ScalarProperty Name="Fecha_juicio" ColumnName="Fecha_juicio" />
+                <ScalarProperty Name="id_demanda" ColumnName="id_demanda" />
+                <ScalarProperty Name="id_juicio" ColumnName="id_juicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sujetos">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.sujeto">
+              <MappingFragment StoreEntitySet="sujetos">
+                <ScalarProperty Name="Tipo_sujeto" ColumnName="Tipo_sujeto" />
+                <ScalarProperty Name="Nombre_completo" ColumnName="Nombre_completo" />
+                <ScalarProperty Name="id_notariado" ColumnName="id_notariado" />
+                <ScalarProperty Name="id_sujeto" ColumnName="id_sujeto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.usuario">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="Oficio" ColumnName="Oficio" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Edo_civil" ColumnName="Edo_civil" />
+                <ScalarProperty Name="cod_autorizacion" ColumnName="cod_autorizacion" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="no_ced" ColumnName="no_ced" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="contra" ColumnName="contra" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="buscarxfechas" FunctionName="expedientes_jbjModel.Store.buscarxfechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="expedientes_jbjModel.buscarxfechas_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="demandas">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.demanda">
+              <MappingFragment StoreEntitySet="demanda">
+                <ScalarProperty Name="Sentencia" ColumnName="Sentencia" />
+                <ScalarProperty Name="Mediacion" ColumnName="Mediacion" />
+                <ScalarProperty Name="Acusador" ColumnName="Acusador" />
+                <ScalarProperty Name="no_acusacion" ColumnName="no_acusacion" />
+                <ScalarProperty Name="Fiscal" ColumnName="Fiscal" />
+                <ScalarProperty Name="juzgado" ColumnName="juzgado" />
+                <ScalarProperty Name="no_expjudicial" ColumnName="no_expjudicial" />
+                <ScalarProperty Name="no_expfiscal" ColumnName="no_expfiscal" />
+                <ScalarProperty Name="no_exppolicial" ColumnName="no_exppolicial" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="Peticion" ColumnName="Peticion" />
+                <ScalarProperty Name="Relacion_hechos" ColumnName="Relacion_hechos" />
+                <ScalarProperty Name="Fecha_fin" ColumnName="Fecha_fin" />
+                <ScalarProperty Name="tipo_demanda" ColumnName="tipo_demanda" />
+                <ScalarProperty Name="id_contraparte" ColumnName="id_contraparte" />
+                <ScalarProperty Name="id_gestion" ColumnName="id_gestion" />
+                <ScalarProperty Name="id_demanda" ColumnName="id_demanda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notariadoes">
+            <EntityTypeMapping TypeName="expedientes_jbjModel.notariado">
+              <MappingFragment StoreEntitySet="notariado">
+                <ScalarProperty Name="Objeto" ColumnName="Objeto" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="Tipo_notariado" ColumnName="Tipo_notariado" />
+                <ScalarProperty Name="no_escritura" ColumnName="no_escritura" />
+                <ScalarProperty Name="id_gestion" ColumnName="id_gestion" />
+                <ScalarProperty Name="id_notariado" ColumnName="id_notariado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="42a2020e6ac2431ea53b1cf7108a34b6" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="expedientes_jbjModel.adj_consultas" Width="1.5" PointX="29.125" PointY="42.125" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.asignacion" Width="1.5" PointX="35.625" PointY="38.5" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.consulta" Width="1.5" PointX="31.125" PointY="41.625" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.contraparte" Width="1.5" PointX="35.5" PointY="35.25" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.detalle_consulta" Width="1.5" PointX="31.125" PointY="38.25" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.expediente" Width="1.5" PointX="40" PointY="36.5" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.gestion" Width="1.5" PointX="37.75" PointY="38.625" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.honorario" Width="1.5" PointX="40.25" PointY="39" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.juicio" Width="1.5" PointX="34.5" PointY="31.875" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.sujeto" Width="1.5" PointX="39.125" PointY="42.125" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.usuario" Width="1.5" PointX="33.5" PointY="38.125" />
+        <AssociationConnector Association="expedientes_jbjModel.adj_consultas_ibfk_1" />
+        <AssociationConnector Association="expedientes_jbjModel.asignacion_ibfk_1" />
+        <AssociationConnector Association="expedientes_jbjModel.asignacion_ibfk_2" />
+        <AssociationConnector Association="expedientes_jbjModel.detalle_consulta_ibfk_2" />
+        <AssociationConnector Association="expedientes_jbjModel.detalle_consulta_ibfk_1" />
+        <AssociationConnector Association="expedientes_jbjModel.expedientes_ibfk_1" />
+        <AssociationConnector Association="expedientes_jbjModel.gestion_ibfk_1" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.demanda" Width="1.5" PointX="37.75" PointY="32" />
+        <AssociationConnector Association="expedientes_jbjModel.demanda_ibfk_2" />
+        <AssociationConnector Association="expedientes_jbjModel.demanda_ibfk_1" />
+        <AssociationConnector Association="expedientes_jbjModel.juicio_ibfk_1" />
+        <EntityTypeShape EntityType="expedientes_jbjModel.notariado" Width="1.5" PointX="36" PointY="41.875" />
+        <AssociationConnector Association="expedientes_jbjModel.notariado_ibfk_1" />
+        <AssociationConnector Association="expedientes_jbjModel.sujetos_ibfk_1" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
